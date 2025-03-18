@@ -1,0 +1,13 @@
+{
+  "name": "portofolio-website",
+  "version": "1.0.0",
+  "description": "most important website",
+  "license": "ISC",
+  "author": "Sergiu",
+  "type": "commonjs",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
