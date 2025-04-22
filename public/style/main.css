@@ -3,5 +3,9 @@
 }
 
 .navigation-element {
-    font-size: 21px;
+    font-size: 24px;
+}
+
+#resume-img {
+    width: 500px;
 }
