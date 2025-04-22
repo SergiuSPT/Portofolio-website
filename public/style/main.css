@@ -33,3 +33,7 @@
     font-weight: lighter;
     font-style: normal;
 }
+
+#contact-me-btn {
+    border-width: 2px;
+}
