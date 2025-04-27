@@ -2,6 +2,14 @@
     background-color: #050;
 }
 
+.slide-right {
+    animation: slideRight 2s ease;
+}
+
+.slide-left {
+    animation: slideLeft 2s ease;
+}
+
 .navigation-element {
     font-size: 24px;
 }
@@ -36,4 +44,33 @@
 
 #contact-me-btn {
     border-width: 2px;
+}
+
+@keyframes slideRight {
+    from {
+        transform: translateX(-100px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideLeft {
+    from {
+        transform: translateX(100px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.slide-right.show {
+    opacity: 1;
+    transform: translateX(0);
 }
