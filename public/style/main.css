@@ -2,6 +2,10 @@
     background-color: #050;
 }
 
+.text-green {
+    color: #050;
+}
+
 .hidden {
     opacity: 0;
     transform: translateX(-100px);
@@ -23,6 +27,10 @@
 
 .navigation-element {
     font-size: 24px;
+}
+
+#navi {
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.5);
 }
 
 #resume-img {
@@ -53,8 +61,16 @@
     font-style: normal;
 }
 
+.font-bigger {
+    font-size: 50px;
+}
+
 #contact-me-btn {
     border-width: 2px;
+}
+
+.shorten-width {
+    width: 70%;
 }
 
 @keyframes slideRight {

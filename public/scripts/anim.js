@@ -1,12 +1,16 @@
-const target = document.getElementById('section-about-me');
-console.log("Testing");
+console.log("anim.js loaded ✅");
+
+const targets = document.querySelectorAll('.hidden'); // select ALL elements with this class
+
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
-            target.classList.add('visible');
-            observer.unobserve(target); // optional: stop observing after animation
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target); // optional: stop observing once animated
         }
     });
-}, { threshold: 0.1 }); // 10% of the element is visible
+}, { threshold: 0.1 }); // Adjust threshold as needed
 
-observer.observe(target);
+targets.forEach(target => {
+    observer.observe(target);
+});
