@@ -6,6 +6,10 @@
     color: #050;
 }
 
+.text-beige {
+    color: #c19a6b;
+}
+
 .hidden {
     opacity: 0;
     transform: translateX(-100px);
@@ -30,11 +34,23 @@
 }
 
 #navi {
-    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 7px 0 rgba(0, 0, 0, 0.7);
 }
 
 #resume-img {
     width: 500px;
+    border-radius: 60px;
+    box-shadow: 0 4px 8px 4px rgba(0, 0, 0, 0.2);
+}
+
+#conti-img {
+    width: 80%;
+    border-radius: 60px;
+    box-shadow: 0 4px 8px 4px rgba(0, 0, 0, 0.2);
+}
+
+#freelance-img {
+    width: 80%;
     border-radius: 60px;
     box-shadow: 0 4px 8px 4px rgba(0, 0, 0, 0.2);
 }
