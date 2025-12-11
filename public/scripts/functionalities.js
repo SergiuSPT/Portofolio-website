@@ -6,3 +6,11 @@ function handleDownloadResume(){
     link.click();
     link.remove();
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get("sent") === "true") {
+            const successModal = new bootstrap.Modal(document.getElementById("successModal"));
+            successModal.show();
+        }
+    });
