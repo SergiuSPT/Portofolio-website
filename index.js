@@ -34,7 +34,7 @@ app.get('/ro', (req, res) => {
 
 
 app.get('/download-resume', (req, res) => {
-    const filePath = path.join(__dirname, "public/files/CV_Spatar_Sergiu_Razvan.pdf");
+    const filePath = path.join(__dirname, "public/files/CV_Spatar_Sergiu_Razvan_03.pdf");
 
     res.download(filePath, "CV_Spatar_Sergiu_Razvan.pdf", (err) => {
         if (err) {
