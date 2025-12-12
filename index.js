@@ -28,6 +28,10 @@ app.get('/portofolio', (req, res) => {
     res.render("portofolio.ejs");
 });
 
+app.get('/ro', (req, res) => {
+    res.render("index_ro.ejs");
+});
+
 
 app.get('/download-resume', (req, res) => {
     const filePath = path.join(__dirname, "public/files/CV_Spatar_Sergiu_Razvan.pdf");
