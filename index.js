@@ -1,7 +1,7 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import env from 'dotenv';
-import nodemailer from "nodemailer";
+import axios from "axios";
 import path from "path";
 import { fileURLToPath } from "url";
 
@@ -47,37 +47,31 @@ app.get('/download-resume', (req, res) => {
 app.post("/submit", async (req, res) => {
     const { email, message } = req.body;
 
-    if (!email || !message) {
-        return res.status(400).send("Missing email or message.");
-    }
-
     try {
-        // Email transporter configuration
-        const transporter = nodemailer.createTransport({
-            service: "gmail",
-            auth: {
-                user: process.env.MY_EMAIL,
-                pass: process.env.MY_EMAIL_PASSWORD
+        await axios.post(
+            "https://api.brevo.com/v3/smtp/email",
+            {
+                sender: { email: process.env.MY_EMAIL },
+                to: [{ email: process.env.MY_EMAIL }],
+                replyTo: { email },
+                subject: "New Contact Form Submission",
+                htmlContent: `
+                    <p><strong>From:</strong> ${email}</p>
+                    <p><strong>Message:</strong><br>${message}</p>
+                `,
+            },
+            {
+                headers: {
+                    "accept": "application/json",
+                    "api-key": process.env.BREVO_API_KEY,
+                    "content-type": "application/json",
+                },
             }
-        });
+        );
 
-        // Email content
-        const mailOptions = {
-            from: `"Portfolio Website" <${process.env.MY_EMAIL}>`,
-            replyTo: email,
-            to: process.env.MY_EMAIL,
-            subject: "New Contact Request",
-            text: `From: ${email}\n\nMessage:\n${message}`
-        };
-
-        // Send the email
-        await transporter.sendMail(mailOptions);
-
-        console.log("Email sent successfully.");
-        res.redirect("/?sent=true"); // Redirect back with a success flag
-
+        res.redirect("/?sent=true");
     } catch (error) {
-        console.error("Email sending error:", error);
+        console.error("Email sending error:", error.response?.data || error);
         res.redirect("/?sent=false");
     }
 });
