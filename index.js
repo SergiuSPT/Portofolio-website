@@ -34,9 +34,9 @@ app.get('/ro', (req, res) => {
 
 
 app.get('/download-resume', (req, res) => {
-    const filePath = path.join(__dirname, "public/files/CV_Spatar_Sergiu_Razvan_03.pdf");
+    const filePath = path.join(__dirname, "public/files/CV_Sergiu_Spatar.pdf");
 
-    res.download(filePath, "CV_Spatar_Sergiu_Razvan.pdf", (err) => {
+    res.download(filePath, "CV_Sergiu_Spatar.pdf", (err) => {
         if (err) {
             console.error("Download failed:", err);
             res.status(500).send("Could not download the file.");
